@@ -599,3 +599,25 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 0;
 }
+
+/*--------------------------------------------------------------
+# Meditation Page
+--------------------------------------------------------------*/
+#meditation{
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 2%;
+  margin-left: 9%;
+  text-align: center;
+}
+
+#info{
+  width: 75%;
+  margin-top: 5%;
+}
+
+#info2{
+  width: 70%;
+  text-align: left !important;
+  justify-content: start;
+}
