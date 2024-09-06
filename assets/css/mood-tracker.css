@@ -1,0 +1,24 @@
+.mood-tracker-container {
+    text-align: center;
+
+    .row-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        gap: 2.5%;
+
+        .container-option {
+            img {
+                width: 200px;
+                height: 200px;
+            }
+
+            input {
+                margin-top: 1rem;
+            }
+            
+            display: block;
+        }
+    }
+}
