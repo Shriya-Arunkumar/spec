@@ -81,21 +81,29 @@
         </header>
         <main class="main">
             <section class="mood-tracker-container">
-                <h1>Rate your mood on a scale of 1 to 5</h1>
-                <div class="row-container">
-                    <div class="container-option">
-                        <label for="html"><img src="https://static.thenounproject.com/png/858701-200.png"/></label><br>
-                        <input type="radio" id="html" name="fav_language" value="HTML">
+                <form id="myForm">
+                    <h1>Rate your mood on a scale of 1 to 5</h1>
+                    <div class="row-container">
+                        <div class="container-option">
+                            <label for="html"><img src="https://static.thenounproject.com/png/858701-200.png"/></label><br>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                        </div>
+                        <div class="container-option">
+                            <label for="css"><img src="https://static.thenounproject.com/png/33189-200.png"/></label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                        </div>
+                        <div class="container-option">
+                            <label for="javascript"><img src="https://static.thenounproject.com/png/3656475-200.png"/></label><br>
+                            <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                        </div>
                     </div>
-                    <div class="container-option">
-                        <label for="css"><img src="https://static.thenounproject.com/png/33189-200.png"/></label><br>
-                        <input type="radio" id="css" name="fav_language" value="CSS">
+                    <div id="description-container">
+                        <textarea id="description" rows="4" cols="50" placeholder="Describe more about your feelings..."></textarea>
                     </div>
-                    <div class="container-option">
-                        <label for="javascript"><img src="https://static.thenounproject.com/png/3656475-200.png"/></label><br>
-                        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                    <div>
+                        <button onclick="">Submit</button>
                     </div>
-                </div>
+                </form>
             </section>
         </main>
         <footer id="footer" class="footer">
@@ -193,5 +201,6 @@
         
           <!-- Main JS File -->
           <script src="assets/js/main.js"></script>
+          <script src="assets/js/mood-tracker.js"></script>
     </body>
 </html>

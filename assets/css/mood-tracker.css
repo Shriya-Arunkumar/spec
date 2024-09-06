@@ -17,8 +17,12 @@
             input {
                 margin-top: 1rem;
             }
-            
+
             display: block;
         }
+    }
+
+    #description-container {
+        display: none;
     }
 }
