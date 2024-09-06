@@ -31,9 +31,14 @@ document.getElementById("myForm").addEventListener("submit", async (event) => {
         });
 
         const result = await response.text();
-        alert(result);
 
-        window.location.href = "/mood-visualization.html";
+        if (result === "Already submitted for today") {
+            alert("You already filled out the form for today!")
+            window.location.href = "/mood-visualization.html";
+        } else {
+            alert(result);
+            window.location.href = "/mood-visualization.html";
+        }
     } catch (error) {
         console.error("Error: ", error);
     }

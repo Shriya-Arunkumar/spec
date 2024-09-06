@@ -46,9 +46,19 @@ app.post('/submit', async (req, res) => {
         }
 
         // Insert data into MongoDB
+        const today = new Date().toISOString().split('T')[0];
         const db = client.db("spec-database");
         const collection = db.collection("mood-tracker-results");
-        const result = await collection.insertOne({ option, description });
+
+        const existingSubmission = await collection.findOne({
+            date: today
+        });
+
+        if (existingSubmission) {
+            return res.status(200).send("Already submitted for today");
+        }
+
+        const result = await collection.insertOne({ option, description, date: today });
 
         console.log("Data inserted with ID:", result.insertedId);
         res.send('Data saved successfully');
