@@ -39,10 +39,19 @@ app.use(express.static('public'));
 app.post('/submit', async (req, res) => {
     try {
         const { option, description } = req.body;
+        let rating = null;
 
         // Validate the required fields
         if (!option || !description) {
             return res.status(400).send('Missing required fields');
+        }
+
+        if (option === "sad") {
+            rating = -1;
+        } else if (option === "neutral") {
+            rating = 0;
+        } else if (option === "happy") {
+            rating = 1;
         }
 
         // Insert data into MongoDB
@@ -58,7 +67,7 @@ app.post('/submit', async (req, res) => {
             return res.status(200).send("Already submitted for today");
         }
 
-        const result = await collection.insertOne({ option, description, date: today });
+        const result = await collection.insertOne({ option, description, rating: rating, date: today });
 
         console.log("Data inserted with ID:", result.insertedId);
         res.send('Data saved successfully');
@@ -67,6 +76,22 @@ app.post('/submit', async (req, res) => {
         res.status(500).send('Error saving data');
     }
 });
+
+app.get("/mood-data", async (req, res) => {
+    try {
+        const today = new Date().toISOString().split('T')[0];
+        const db = client.db("spec-database");
+        const collection = db.collection("mood-tracker-results");
+
+        const result = await collection.find({}).toArray();
+
+        res.json(result);
+
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        res.status(500).send('Error fetching data');
+    }
+})
 
 // Start server
 app.listen(PORT, () => {

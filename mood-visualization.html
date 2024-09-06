@@ -25,15 +25,8 @@
 
         <!-- Main CSS File -->
         <link href="assets/css/main.css" rel="stylesheet">
-        <link href="assets/css/mood-tracker.css" rel="stylesheet">
-
-        <!-- =======================================================
-        * Template Name: Appland
-        * Template URL: https://bootstrapmade.com/free-bootstrap-app-landing-page-template/
-        * Updated: Aug 07 2024 with Bootstrap v5.3.3
-        * Author: BootstrapMade.com
-        * License: https://bootstrapmade.com/license/
-        ======================================================== -->
+        <link href="assets/css/mood-visualization.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body class="index-page">
         <header id="header" class="header d-flex align-items-center sticky-top">
@@ -42,7 +35,7 @@
             <a href="index.html" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">Appland</h1>
+                <h1 class="sitename">SPEC</h1>
             </a>
         
             <nav id="navmenu" class="navmenu">
@@ -80,8 +73,9 @@
             </div>
         </header>
         <main class="main">
-            <section>
+            <section class="visualizations-container">
                 <h1>Visualizations</h1>
+                <canvas id="moodChart" width="400" height="200"></canvas>
             </section>
         </main>
         <footer id="footer" class="footer">
@@ -179,6 +173,6 @@
         
           <!-- Main JS File -->
           <script src="assets/js/main.js"></script>
-          <script src="assets/js/mood-tracker.js"></script>
+          <script src="assets/js/mood-visualization.js"></script>
     </body>
 </html>
