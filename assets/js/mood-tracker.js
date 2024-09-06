@@ -21,6 +21,17 @@ document.getElementById("myForm").addEventListener("submit", async (event) => {
 
     try {
         console.log(data);
+
+        const response = await fetch("http://localhost:3000/submit", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.text();
+        alert(result);
     } catch (error) {
         console.error("Error: ", error);
     }
