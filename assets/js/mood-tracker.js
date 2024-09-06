@@ -32,6 +32,8 @@ document.getElementById("myForm").addEventListener("submit", async (event) => {
 
         const result = await response.text();
         alert(result);
+
+        window.location.href = "/mood-visualization.html";
     } catch (error) {
         console.error("Error: ", error);
     }
