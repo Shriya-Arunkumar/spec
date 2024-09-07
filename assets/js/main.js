@@ -177,9 +177,6 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
-<<<<<<< HEAD
-})();
-=======
 })();
 
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
@@ -204,4 +201,3 @@ function switchTheme(e) {
 }
 
 toggleSwitch.addEventListener('change', switchTheme, false);
->>>>>>> bab9578c62e89654974626d8054ba6cea640d223
