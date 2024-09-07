@@ -11,6 +11,9 @@ async function fetchMoodData() {
 
 async function renderChart() {
     const moodData = await fetchMoodData();
+
+    moodData.sort((a, b) => new Date(a.date) - new Date(b.date))
+
     const labels = moodData.map(entry => entry.date);
     const moodValues = moodData.map(entry => entry.rating); // Adjust this based on your data
     console.log(moodValues);
