@@ -17,7 +17,7 @@ async function renderChart() {
 
     const ctx = document.getElementById('moodChart').getContext('2d');
     new Chart(ctx, {
-        type: 'bar', // Change to 'bar', 'pie', etc. if desired
+        type: 'line', // Change to 'bar', 'pie', etc. if desired
         data: {
             labels: labels,
             datasets: [{
