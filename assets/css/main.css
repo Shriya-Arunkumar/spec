@@ -10,13 +10,14 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
+:root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
-  /*--accent-color: #5777ba; *//* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --heading-color: #2d465e; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #7869C8; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --faq-background-color: #212529;
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -27,14 +28,10 @@
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #5777ba; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --navbar-background-color: #ffffff;
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
-.light-background {
-  --background-color: #f2f5fb;
-  --surface-color: #ffffff;
-}
 
 .dark-background {
   --background-color: #060606;
@@ -44,9 +41,113 @@
   --contrast-color: #ffffff;
 }
 
+[data-theme="dark"] {
+  --primary-color: #706dc0;
+  --secondary-color: #ffffff;
+  --font-color: #ffffff;
+  --default-color: #ffffff;
+  --surface-color: var(--nav-color);
+  --background-color: #161625;
+  --heading-color: #ffffff;
+  --bs-body-bg: #161625;
+  --navbar-background-color: #7869c8;
+  --gradient-color: linear-gradient(163deg,  rgb(221, 97, 97) 0%, #3700ff 100%);
+}
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
+}
+
+/* ***********************************************************
+*******************TOGGLE SWITCH *************************/
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  top: 100px;
+  right: 10px;
+  position: fixed;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #20262c;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -5px 0px 0px #ececd9, -0.8px 1px 4px 0px #dadada;
+  background: var(--background);
+  transition: 0.5s;
+}
+
+input:checked + .slider {
+  background-color: #5494de;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.decoration {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 2px;
+  border-radius: 50%;
+  right: 20%;
+  top: 15%;
+  background: #e5f041e6;
+  backdrop-filter: blur(10px);
+  transition: all 0.5s;
+  box-shadow: -7px 10px 0 #e5f041e6, 8px 15px 0 #e5f041e6, -17px 1px 0 #e5f041e6,
+    -20px 10px 0 #e5f041e6, -7px 23px 0 #e5f041e6, -15px 25px 0 #e5f041e6;
+}
+
+input:checked ~ .decoration {
+  transform: translateX(-20px);
+  width: 10px;
+  height: 10px;
+  background: white;
+  box-shadow: -12px 0 0 white, -6px 0 0 1.6px white, 5px 15px 0 1px white,
+    1px 17px 0 white, 10px 17px 0 white;
+}
+
+input:checked + .slider {
+  background-color: #5494de;
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px #efdf2b, 0 0 10px 0px #efdf2b;
 }
 
 /*--------------------------------------------------------------
@@ -59,7 +160,7 @@ body {
 }
 
 a {
-  color: #ffffff;
+  color: var(--accent-color);
   text-decoration: none;
   transition: 0.3s;
 }
@@ -135,7 +236,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  color: #ffffff;
+  color: var(--default-color);
   background-color: #7869c8;
   padding: 15px 0;
   transition: all 0.5s;
@@ -245,7 +346,7 @@ h6 {
   .navmenu li:hover>a,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-hover-color);
+    color: white;
   }
 
   .navmenu .dropdown ul {
@@ -630,8 +731,8 @@ h6 {
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  right: 15px;
-  bottom: 15px;
+  right: 35px;
+  bottom: 105px;
   z-index: 99999;
   background-color: var(--accent-color);
   width: 40px;
@@ -817,24 +918,24 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.about ul {
+.ul {
   list-style: none;
   padding: 0;
 }
 
-.about ul li {
+.ul li {
   padding-bottom: 5px;
   display: flex;
   align-items: center;
 }
 
-.about ul i {
+.ul i {
   font-size: 20px;
   padding-right: 4px;
   color: var(--accent-color);
 }
 
-.about .read-more {
+.read-more {
   background: var(--accent-color);
   color: var(--contrast-color);
   font-family: var(--heading-font);
@@ -849,18 +950,18 @@ section,
   justify-content: center;
 }
 
-.about .read-more i {
+.read-more i {
   font-size: 18px;
   margin-left: 5px;
   line-height: 0;
   transition: 0.3s;
 }
 
-.about .read-more:hover {
+.read-more:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-.about .read-more:hover i {
+.read-more:hover i {
   transform: translate(5px, 0);
 }
 
@@ -1231,7 +1332,7 @@ section,
 }
 
 .faq .faq-container .faq-item {
-  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
+  background-color: color-mix(in srgb, var(--faq-background-color), transparent 96%);
   position: relative;
   padding: 20px;
   margin-bottom: 20px;
@@ -1390,11 +1491,4 @@ section,
 
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
 }
