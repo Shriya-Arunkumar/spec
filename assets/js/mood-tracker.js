@@ -33,11 +33,15 @@ document.getElementById("myForm").addEventListener("submit", async (event) => {
         const result = await response.text();
 
         if (result === "Already submitted for today") {
-            alert("You already filled out the form for today!")
-            window.location.href = "/mood-visualization.html";
+            document.getElementById("alert").innerText = "You already filled out the form for today!"
+            setTimeout(() =>
+                window.location.href = "/mood-visualization.html"
+            , 2000);
         } else {
-            alert(result);
-            window.location.href = "/mood-visualization.html";
+            document.getElementById("alert").innerText = result;
+            setTimeout(() =>
+                window.location.href = "/mood-visualization.html"
+            , 2000);
         }
     } catch (error) {
         console.error("Error: ", error);
