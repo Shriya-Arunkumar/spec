@@ -29,6 +29,8 @@ Before cloning and setting up the project, ensure you have the following install
 
 - [Node.js](https://nodejs.org/) (v14.x or later)
 - [npm](https://www.npmjs.com/) (comes with Node.js)
+- [Express.js](https://expressjs.com/) (to run the back end server)
+- [MongoDB](https://github.com/mongodb/mongo) (database where user entries are stored) 
 - [Firebase CLI](https://firebase.google.com/docs/cli) (for deploying and managing Firebase services)
 - [Git](https://git-scm.com/) (for version control)
 
@@ -41,10 +43,29 @@ To clone the repository, open your terminal and run the following command:
 ```bash
 git clone https://github.com/spec.git
 ```
+
+### 2. Set up the back end
+
+To run the back end server on localhost:
+
+First run `npm i` to install necessary libraries
+
+Then change directory to where the js files are:
+
+```cd assets/js```
+
+Then create an env file and set a variable called DB_PASSWORD, this is to be able to read and write from the MongoDB
+
+`DB_PASSWORD='brettfavre4'`
+
+Finally, run the back end server using the command `node server.js`
+
+Your back end server should be up and running, with a connection to MongoDB
+
 ## Contact Details
 
   Authors and Email ID -
   - Shriya Arunkumar - arunkumarshriya@gmail.com
-  - Victor Hsio - vhsiao36@gmail.com
+  - Victor Hsiao - vhsiao36@gmail.com
   - Elizabeth Yan - elizabeth.rose.yan@gmail.com
   - Dhyeya Anand - dhyeyaanand@gmail.com
